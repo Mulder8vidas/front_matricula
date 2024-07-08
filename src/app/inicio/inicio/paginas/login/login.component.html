@@ -1,0 +1,49 @@
+<div class="main w-screen h-screen flex justify-center items-center flex-row" >
+  <div class="container-main flex ">
+    <div class="form-container  flex justify-center  mt-32">
+      <div class="form-caja ">
+      <p class="title">Login</p>
+      <form class="form " [formGroup]="formLogin">
+        <div class="input-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" placeholder="username" required formControlName="username">
+        </div>
+        <div class="input-group flex flex-col justify-center items-center ">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="password" formControlName="password" required>
+          <form #formcaptcha="ngForm" class="captcha">
+            <div class="row mt-3 " *ngIf="this.token.length==0 ">
+              <div class="captch">
+                <re-captcha id="recaptcha" name="recaptcha" #recaptcha="ngModel" [(ngModel)]="token" required
+                            [class.is-invalid]="recaptcha.invalid && (recaptcha.dirty || recaptcha.touched)"></re-captcha>
+                <div *ngIf="recaptcha.invalid && (recaptcha.dirty || recaptcha.touched)" class="invalid-feedback">
+                  <div *ngIf="recaptcha.errors?.['required']">This field is required.</div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+
+
+        <div class="btn" style="margin-top:2em" >
+          <div class="boton-login">
+            <button class="sign" [disabled]="this.token.length==0" (click)="logearse()"
+                    [ngStyle]="{opacity:this.token.length==0?'.7':'1'}">Login
+            </button>
+
+          </div>
+        </div>
+
+
+      </form>
+
+    </div>
+    </div>
+    <div class="img-container">
+      <h1><strong>Bienvenido a tu </strong> <br> portal de matricula</h1>
+      <h3>Ingresa tu usuario para iniciar sesion</h3>
+    </div>
+  </div>
+</div>
+
+

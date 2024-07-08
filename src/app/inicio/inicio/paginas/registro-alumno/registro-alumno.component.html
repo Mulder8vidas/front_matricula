@@ -1,0 +1,77 @@
+<div class="main flex">
+  <div class="sidebar-caja">
+    <app-sidebar></app-sidebar>
+  </div>
+
+  <div class="containertxt ">
+    <h1>Registrar Alumno</h1>
+  <div class="contentForm">
+    <div class="formularios-caja flex">
+      <form [formGroup]="formulario" class=" flex flex-wrap">
+        <div class="left  p-4">
+          <div class="mb-4">
+            <label for="nombres" class="block text-gray-700 text-sm font-bold mb-2">Nombres</label>
+            <input id="nombres" formControlName="nombres" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+          </div>
+          <div class="mb-4">
+            <label for="apellidos" class="block text-gray-700 text-sm font-bold mb-2">Apellidos</label>
+            <input id="apellidos" formControlName="apellidos" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+          </div>
+          <div class="mb-4">
+            <label for="fechaNacimiento" class="block text-gray-700 text-sm font-bold mb-2">Fecha de Nacimiento</label>
+            <input type="date" id="fechaNacimiento" formControlName="fechaNacimiento" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+          </div>
+          <div class="mb-4">
+            <label for="dni" class="block text-gray-700 text-sm font-bold mb-2">DNI</label>
+            <input id="dni" formControlName="dni" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+          </div>
+          <div class="mb-4">
+            <label for="sexo" class="block text-gray-700 text-sm font-bold mb-2">Sexo</label>
+            <select id="sexo" formControlName="sexo" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+              <option value="">Seleccione</option>
+              <option value="M">Masculino</option>
+              <option value="F">Femenino</option>
+            </select>
+          </div>
+          <div class="mb-4">
+            <label for="nivel" class="block text-gray-700 text-sm font-bold mb-2">Nivel</label>
+            <select id="nivel" formControlName="nivel" (change)="cambioNivel()" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+              <option value="">Seleccione</option>
+              <ng-container *ngFor="let item of datanivel">
+                <option [value]="item">{{ item }}</option>
+              </ng-container>
+            </select>
+          </div>
+          <div class="mb-4">
+            <label for="grado" class="block text-gray-700 text-sm font-bold mb-2">Grado</label>
+            <select id="grado" formControlName="grado" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+              <ng-container *ngFor="let item of datagrado">
+                <option [value]="item.grado">{{ item.grado }}</option>
+              </ng-container>
+              <option value="">Seleccione</option>
+            </select>
+          </div>
+        </div>
+        <div class="right  p-4">
+          <div class="mb-4">
+            <label for="apoderado" class="block text-gray-700 text-sm font-bold mb-2">Apoderado</label>
+            <input id="apoderado" formControlName="apoderado" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+          </div>
+          <div class="mb-4">
+            <label for="nroTelefono" class="block text-gray-700 text-sm font-bold mb-2">Nro Teléfono</label>
+            <input id="nroTelefono" formControlName="nroTelefono" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+          </div>
+          <div class="mb-4">
+            <label for="direccion" class="block text-gray-700 text-sm font-bold mb-2">Dirección</label>
+            <input id="direccion" formControlName="direccion" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+          </div>
+        </div>
+
+      </form>
+    </div>
+    <button type="button" (click)="Registrar()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+      Enviar
+    </button>
+  </div>
+</div>
+</div>

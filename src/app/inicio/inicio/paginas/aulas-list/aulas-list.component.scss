@@ -1,0 +1,210 @@
+/* src/app/data-table/data-table.component.scss */
+
+.table {
+  width: 100%;
+
+  border-collapse: collapse;
+  font-family: 'Arial', sans-serif;
+  margin: 20px 0;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.table thead {
+  color: #9c8cf3;
+}
+
+.table th, .table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.table tbody tr:hover {
+  background-color: #f2f2f2;
+}
+
+.table button {
+  background-color: #614cd3;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-radius: 4px;
+}
+
+.table button:hover {
+  background-color: #4c3ca6;
+}
+
+.table button:focus {
+  outline: none;
+  box-shadow: 0 0 3px 2px rgba(0, 123, 255, 0.5);
+}
+
+.sidebar-caja {
+  width: 17%;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 5px 25px;
+}
+
+.main-caja {
+  width: 83%;
+  padding: 5em;
+}
+
+.content-main {
+
+  overflow: hidden;
+}
+
+.content-aulas {
+  padding: 5%;
+  border: solid 2px #9c8cf3;
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+}
+
+.tabla-content {
+  max-height: 80vh;
+  overflow-y: auto;
+}
+.red {
+  color: red;
+}
+
+.yellow {
+  color: #ecca1f;
+}
+
+.green {
+  color: #0ea80e;
+}
+
+//tabla de alumnos
+.table-container {
+  width: 80%;
+  margin: 25px auto;
+  overflow-x: auto;
+
+}
+
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+  font-family: 'Arial', sans-serif;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+  background-color: #7b66f1;
+  color: #ffffff;
+  text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+  padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+.styled-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+
+.img{
+  width: 50px;
+}
+
+/*form editar alumno  */
+/* Estilo para el diálogo */
+p-dialog .ui-dialog-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Estilo para la imagen del alumno */
+.imgalumno {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.img1 {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Estilo para los grupos del formulario */
+.form-group {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"] {
+  width: calc(100% - 20px);
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type="text"]:focus {
+  border-color: #66afe9;
+  outline: none;
+}
+
+/* Estilo para el botón */
+.btn {
+  padding: 10px 20px;
+  margin-top: 20px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+/* Ajuste de anchura y altura del diálogo */
+.ui-dialog {
+  width: 50vw !important;
+  height: 80vh !important;
+}
+
+/* Estilo para asegurar que el contenido se ajuste correctamente */
+.ui-dialog-content {
+  overflow-y: auto;
+}

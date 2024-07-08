@@ -1,0 +1,41 @@
+<div class="content-main w-screen h-screen flex ">
+  <nav class="sidebar-caja">
+    <app-sidebar></app-sidebar>
+  </nav>
+  <div class="main-caja">
+    <h1 style="font-size:2em"><strong>Bienvenido a su sistema de Matricula</strong></h1>
+    <div class="resumen flex gap-10 mt-16">
+      <div class="resumen1 caja flex">
+        <div class="icono-caja">
+        <i class="fas fa-graduation-cap icono"></i>
+        </div>
+        <div class="data">
+          <span style="font-size:1.5em"><strong>Alumnos Matriculados</strong></span>
+          <h1 style="font-size: 4em"><strong>{{ cantidadAlumnos}}</strong></h1>
+        </div>
+      </div>
+      <div class="resumen2 caja flex">
+        <div class="icono-caja">
+        <i class="fas fa-school icono"></i>
+        </div>
+        <div class="data">
+          <span style="font-size:1.5em"><strong>Número de aulas</strong></span>
+          <h1 style="font-size: 4em"><strong>{{ cantidadAulas }}</strong></h1>
+        </div>
+      </div>
+    </div>
+    <h1 style="margin: 2em 0; font-size:2em"><strong>Modulos Disponibles</strong></h1>
+    <div class="modulos flex justify-center gap-20">
+
+      <button (click)="registro()" class="registro ">
+        <i class="fas fa-user-plus icono-modulo"></i>
+        <h1 class="titulo-modulo">Registrar Alumno</h1>
+      </button>
+      <button (click)="aulas()" class="aulas ">
+        <i class="fas fa-address-card icono-modulo"></i>
+        <h1 class="titulo-modulo">Ver lista de aulas</h1>
+      </button>
+
+    </div>
+  </div>
+</div>

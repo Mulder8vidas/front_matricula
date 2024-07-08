@@ -1,0 +1,136 @@
+
+<div class="content-main w-screen h-screen flex ">
+  <div class="sidebar-caja">
+    <app-sidebar></app-sidebar>
+  </div>
+  <div class="content-aulas">
+    <h1 style="font-weight: bold;color: #0b021f;font-size: 2em">Lista de aulas Registradas</h1>
+    <h2 style="font-weight: bold;color: #9c8cf3;font-size: 2em">{{cantidadAulas}} Aulas registradas</h2>
+<div class="tabla-content">
+<table class="table"  >
+  <thead>
+  <tr >
+    <th scope="col">Nivel</th>
+    <th scope="col">Grado</th>
+    <th style="text-align: center" scope="col">Nro de Alumnos</th>
+    <th scope="col" >Acciones </th>
+  </tr>
+  </thead>
+  <tbody>
+  <ng-container>
+    @for (item of data;track item){
+    <tr style="text-align: center">
+      <td>{{ item.Nivel }}</td>
+      <td>{{ item.grado }}</td>
+      <td [ngClass]="getColor(item.cantidad)" style="text-align: center">{{ item.cantidad }}</td>
+
+      <td>
+        <button  (click)="showDialog(item)" >Ver Alumnos</button>
+
+      </td>
+    </tr>
+    }
+  </ng-container>
+  </tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p-dialog  appendTo="body" header="Alumnos matriculados" [(visible)]="visible" [modal]="true" [style]="{ width: '50vw', height:'80vh'}" [draggable]="false" [resizable]="false">
+  <table class="styled-table">
+      <thead >
+      <tr style="text-align: center" >
+        <th scope="col">Foto</th>
+        <th scope="col">Nombres y Apellido</th>
+        <th scope="col">DNI</th>
+        <th scope="col">Sexo</th>
+        <th scope="col">Nro de Telefono</th>
+        <th scope="col">Apoderado</th>
+        <th scope="col">Acciones</th>
+
+      </tr>
+      </thead>
+      <tbody>
+      <ng-container>
+        @for (item of currentDataSelected;track item){
+        <tr style="text-align: center">
+          <td>@if (item.Sexo == "M"){
+            <img class="img" src="assets/hombre.png" alt="">
+          } @else {
+            <img  class="img" src="assets/mujer.png" alt="">
+          }</td>
+          <td>{{ item.Nombres }} {{ item.Apellidos }}</td>
+          <td>{{ item.DNI }}</td>
+          <td>{{ item.Sexo }}</td>
+          <td>{{ item.NroTelefono }}</td>
+          <td>{{ item.Apoderado }}</td>
+          <td >
+            <button (click)="showEditar(item)" ><i class="fas fa-user-edit"></i></button>
+            <button (click)="eliminarModal(item)" ><i class="fas fa-trash-alt" style="margin-left: 1em"></i></button>
+
+        </tr>
+        }
+      </ng-container>
+      </tbody>
+
+
+
+    </table>
+</p-dialog>
+@if (visibleEdit==true){
+  <p-dialog  appendTo="body" header="Editar Alumno" [(visible)]="visibleEdit" [modal]="true" [style]="{ width: '50vw', height:'80vh'}" [draggable]="false" [resizable]="false">
+    <div class="imgalumno">
+      @if (currentAlumnos.Sexo == "M"){
+        <img class="img1" src="assets/hombre.png" alt="">
+      } @else {
+        <img  class="img1" src="assets/mujer.png" alt="">
+      }
+    </div>
+    <div class="form-group">
+      <label >Nombres</label>
+      <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Nombres" [(ngModel)]="currentAlumnos.Nombres">
+    </div>
+    <div class="form-group">
+      <label >Apellidos</label>
+      <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Apellidos" [(ngModel)]="currentAlumnos.Apellidos">
+    </div>
+    <div class="form-group">
+      <label >DNI</label>
+      <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="DNI" [(ngModel)]="currentAlumnos.DNI">
+    </div>
+    <div class="form-group">
+      <label >Sexo</label>
+      <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Sexo" [(ngModel)]="currentAlumnos.Sexo">
+    </div>
+    <div class="form-group">
+      <label >Nro de Telefono</label>
+      <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Nro de Telefono" [(ngModel)]="currentAlumnos.NroTelefono">
+    </div>
+    <div class="form-group">
+      <label >Direccion del alumno</label>
+      <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Direccion del alumno" [(ngModel)]="currentAlumnos.Direccion">
+    </div>
+    <div class="form-group">
+      <label >Nivel</label>
+      <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Nivel" [(ngModel)]="currentAlumnos.Nivel">
+    </div>
+    <div class="form-group">
+      <label >Grado</label>
+      <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Grado" [(ngModel)]="currentAlumnos.Grado">
+    </div>
+
+    <button (click)="editar()" class="btn btn-primary">Editar</button>
+
+
+
+
+  </p-dialog>
+
+}
+<p-dialog  header="Eliminar Alumno" [(visible)]="visibleEliminar" [modal]="true" [style]="{ width: '50vw', height:'30vh'}" [draggable]="false" [resizable]="false">
+  <h1>¿Estas seguro de eliminar a este alumno?</h1>
+  <button (click)="eliminar()" class="btn btn-danger">Eliminar</button>
+  <button (click)="cancelar()" class="btn btn-primary">Cancelar</button>
+
+</p-dialog>

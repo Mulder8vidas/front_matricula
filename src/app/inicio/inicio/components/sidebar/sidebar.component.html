@@ -1,0 +1,15 @@
+<div class="content flex flex-col text-amber-50 ">
+  <div class="user flex  flex-col items-center">
+    <h1>Sistema de matricula </h1>
+    <img src="assets/user.png" alt="">
+    <h1>Bienvenido Director</h1>
+    <h2 style="font-size: 1.5em">Eliga uno de los modulos Disponibles:</h2>
+  </div>
+  <div class="modules flex flex-col">
+    <button (click)="mandaraula()">Registrar Alumno</button>
+    <button (click)="mandarAlumno()">Ver Aulas</button>
+  </div>
+  <div class="btn " >
+  <button style="color: #fff; background: transparent" (click)="cerrarSesion()" class="logout">Cerrar Sesion</button>
+  </div>
+</div>
